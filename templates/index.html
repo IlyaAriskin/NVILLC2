@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <style>
+        .preview-image {
+            max-width: 200px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Classification</h1>
+    <div class="container">
+        <form action="/" method="post" enctype="multipart/form-data">
+            {% if error_message %}
+            <p>{{ error_message }}</p>
+            {% endif %}
+            <label for="image-upload" class="upload-label">Выбрать картинку</label>
+            <input type="file" name="image" id="image-upload">
+            <button type="submit">Загрузить</button>
+        </form>
+        {% if result %}
+            <h2>Результат</h2>
+    <table class="result-table">
+        <tr>
+            <th>Параметр</th>
+            <th>Значение</th>
+        </tr>
+        <tr>
+            <td>Ширина</td>
+            <td>{{ result.width }} пикселей</td>
+        </tr>
+        <tr>
+            <td>Высота</td>
+            <td>{{ result.height }} пикселей</td>
+        </tr>
+        <tr>
+            <td>Что изображено</td>
+            <td>{{ result.class }}</td>
+        </tr>
+    </table>
+            <img class="preview-image" src="/{{ result.filename }}" alt="Превью картинки">
+        {% endif %}
+
+    </div>
+</body>
+</html>
