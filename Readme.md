@@ -55,6 +55,12 @@ pip install -r requirements.txt
 python app.py
 ```
 
+## Скриншоты
+
+![alt text](inter_1.jpg)
+
+![alt text](inter_2.jpg)
+
 ## Использование:
 
 ```python
